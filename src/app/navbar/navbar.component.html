@@ -1,0 +1,14 @@
+<nav class="navbar navbar-light bg-red-50 justify-content-between fixed">
+    <div class="container-fluid">
+      <a class="navbar-brand ml-2">Assignment</a>
+       <form class="form-inline my-2 my-lg-0 ml-auto" (ngSubmit)="onSubmit(searchInput.value)">
+      <div class="input-group"> <!-- Use input group for input and button together -->
+        <input #searchInput class="form-control mr-4 mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <div class="input-group-append">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </div>
+      </div>
+    </form>
+    </div>
+  </nav>
+  

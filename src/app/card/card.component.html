@@ -1,0 +1,61 @@
+<div class="flex justify-center items-center h-full">
+    
+    <div class="card w-96 bg-base-100 shadow-xl mt-20">
+        <figure><img [src]="userData.avatar_url" alt="User Avatar" /></figure>
+        <div class="card-body">
+            <h2 class="card-title" *ngIf="userData">{{userData.name}}</h2>
+            <p>{{ userData.bio }}</p>
+            <div class="card-actions justify-end">
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+  
+  
+
+
+
+<!-- <div class="card mt-7 ml-7" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title" >{{userRepos.name}}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <a href="#" class="card-link">Card link</a>
+      <a href="#" class="card-link">Another link</a>
+    </div>
+  </div> -->
+
+  <div *ngFor="let repo of getCurrentPageRepos()" class="container">
+    <div class="row">
+      <div *ngFor="let repo of userRepos" class="col-md-4 mb-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{ repo.name }}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{ repo.full_name }}</h6>
+            <p class="card-text">{{ repo.description }}</p>
+            <a href="{{ repo.html_url }}" class="card-link">View Repository</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+      <li class="page-item" (click)="previousPage()" [class.disabled]="currentPage === 1">
+        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+      </li>
+      <li class="page-item" *ngFor="let pageNumber of totalPages" [class.active]="currentPage === pageNumber">
+        <a class="page-link" href="#" (click)="goToPage(pageNumber)">{{ pageNumber }}</a>
+      </li>
+      <li class="page-item" (click)="nextPage()" [class.disabled]="currentPage === totalPages.length">
+        <a class="page-link" href="#">Next</a>
+      </li>
+    </ul>
+  </nav>
+  
+  
