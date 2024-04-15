@@ -4,7 +4,10 @@
         <figure><img [src]="userData.avatar_url" alt="User Avatar" /></figure>
         <div class="card-body">
             <h2 class="card-title" *ngIf="userData">{{userData.name}}</h2>
-            <p>{{ userData.bio }}</p>
+            <p><span class="underline">description:</span> {{ userData.bio }}</p>
+<p><span class="underline">location:</span>{{ userData.location }}</p>
+<p><span class="underline">followers:</span>{{ userData.followers }}</p>
+<p><span class="underline">following:</span>{{ userData.following }}</p>
             <div class="card-actions justify-end">
                 
             </div>
@@ -28,7 +31,7 @@
     </div>
   </div> -->
 
-  <div *ngFor="let repo of getCurrentPageRepos()" class="container">
+  <div *ngFor="let repo of getCurrentPageRepos()" class="container mt-6">
     <div class="row">
       <div *ngFor="let repo of userRepos" class="col-md-4 mb-4">
         <div class="card">
@@ -36,6 +39,8 @@
             <h5 class="card-title">{{ repo.name }}</h5>
             <h6 class="card-subtitle mb-2 text-muted">{{ repo.full_name }}</h6>
             <p class="card-text">{{ repo.description }}</p>
+            <p class="card-text  text-red-600">{{ repo.language }}</p>
+
             <a href="{{ repo.html_url }}" class="card-link">View Repository</a>
           </div>
         </div>
